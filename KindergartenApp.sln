@@ -1,0 +1,37 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KindergartenApp.UI", "KindergartenApp.UI\KindergartenApp.UI.csproj", "{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KindergartenApp.Core", "KindergartenApp.Core\KindergartenApp.Core.csproj", "{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KindergartenApp.Infrastructure", "KindergartenApp.Infrastructure\KindergartenApp.Infrastructure.csproj", "{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KindergartenApp.Application", "KindergartenApp.Application\KindergartenApp.Application.csproj", "{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C0A0A0-0A0A-4A0A-A0A0-A0A0A0A0A0A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

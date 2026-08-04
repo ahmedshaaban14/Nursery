@@ -1,0 +1,207 @@
+<UserControl x:Class="KindergartenApp.UI.Views.PaymentsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Grid Background="{StaticResource BrushBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="340" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Style="{StaticResource CardModern}"
+                Background="{StaticResource BrushSurface}"
+                Margin="0,0,20,0"
+                VerticalAlignment="Stretch">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="{StaticResource PaddingMD}">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
+                        <materialDesign:PackIcon Kind="CreditCardPlusOutline"
+                                                 Width="24"
+                                                 Height="24"
+                                                 Foreground="{StaticResource BrushPrimary}"
+                                                 Margin="0,0,10,0" />
+                        <TextBlock Text="Add Payment"
+                                   Style="{StaticResource TextBlockH3}"
+                                   Margin="0" />
+                    </StackPanel>
+
+                    <TextBlock Text="Child" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <ComboBox ItemsSource="{Binding Children}"
+                              SelectedValue="{Binding SelectedChildId}"
+                              SelectedValuePath="Id"
+                              DisplayMemberPath="FullName"
+                              Style="{StaticResource ComboBoxModern}"
+                              Margin="0,0,0,16" />
+
+                    <TextBlock Text="Amount" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBoxModern}"
+                             Margin="0,0,0,16" />
+
+                    <TextBlock Text="Payment Date" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <DatePicker SelectedDate="{Binding PaymentDate}"
+                                Style="{StaticResource DatePickerModern}"
+                                Margin="0,0,0,22" />
+
+                    <Button Command="{Binding AddPaymentCommand}"
+                            Height="42"
+                            Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ContentSaveOutline"
+                                                     Width="18"
+                                                     Height="18"
+                                                     Margin="0,0,8,0" />
+                            <TextBlock Text="Add Payment" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Command="{Binding LoadUnpaidPaymentsCommand}"
+                            Style="{StaticResource ButtonSecondary}"
+                            Height="42"
+                            Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ReceiptTextClockOutline"
+                                                     Width="18"
+                                                     Height="18"
+                                                     Margin="0,0,8,0" />
+                            <TextBlock Text="Refresh Unpaid" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Command="{Binding LoadChildrenCommand}"
+                            Style="{StaticResource ButtonSecondary}"
+                            Height="42">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountChildOutline"
+                                                     Width="18"
+                                                     Height="18"
+                                                     Margin="0,0,8,0" />
+                            <TextBlock Text="Refresh Children" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    Style="{StaticResource CardModern}"
+                    Background="{StaticResource BrushSurface}"
+                    Margin="0,0,0,16">
+                <Grid Margin="{StaticResource PaddingMD}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="Payments"
+                                   Style="{StaticResource TextBlockH2}"
+                                   Margin="0,0,0,4" />
+                        <TextBlock Text="Track unpaid fees, mark balances as paid, and review each child's payment history."
+                                   Style="{StaticResource TextBlockSmall}" />
+                    </StackPanel>
+                    <Border Grid.Column="1"
+                            Background="{StaticResource BrushSurfaceLight}"
+                            CornerRadius="{StaticResource CornerRadiusMD}"
+                            Padding="12,8"
+                            VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ClockAlertOutline"
+                                                     Width="18"
+                                                     Height="18"
+                                                     Foreground="{StaticResource BrushWarning}"
+                                                     Margin="0,0,8,0" />
+                            <TextBlock Text="{Binding UnpaidPayments.Count, StringFormat={}{0} unpaid}"
+                                       Style="{StaticResource TextBlockLabel}"
+                                       Foreground="{StaticResource BrushTextPrimary}" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <TabControl Grid.Row="1" Style="{StaticResource TabControlModern}"
+                        Background="{StaticResource BrushBackground}"
+                        Foreground="{StaticResource BrushTextPrimary}">
+                <TabItem Header="Unpaid Payments" Style="{StaticResource TabItemModern}">
+                    <Border Style="{StaticResource CardModern}"
+                            Background="{StaticResource BrushSurface}"
+                            Padding="0">
+                        <DataGrid ItemsSource="{Binding UnpaidPayments}" CellStyle="{StaticResource DataGridCellModern}"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  CanUserAddRows="False"
+                                  BorderThickness="0">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Child" Binding="{Binding ChildName}" Width="2*" />
+                                <DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat={}{0:C}}" Width="*" />
+                                <DataGridTextColumn Header="Month" Binding="{Binding Month}" Width="*" />
+                                <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="*" />
+                                <DataGridTextColumn Header="Due Date" Binding="{Binding Date, StringFormat={}{0:MMM dd, yyyy}}" Width="1.4*" />
+                                <DataGridTemplateColumn Header="Action" Width="150">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Command="{Binding DataContext.MarkPaidCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                    CommandParameter="{Binding}"
+                                                    Style="{StaticResource ButtonSecondary}"
+                                                    Height="32"
+                                                    Padding="10,4">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <materialDesign:PackIcon Kind="CheckCircleOutline"
+                                                                             Width="16"
+                                                                             Height="16"
+                                                                             Margin="0,0,6,0" />
+                                                    <TextBlock Text="Mark paid" />
+                                                </StackPanel>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+                </TabItem>
+
+                <TabItem Header="Child History" Style="{StaticResource TabItemModern}">
+                    <Border Style="{StaticResource CardModern}"
+                            Background="{StaticResource BrushSurface}"
+                            Padding="0">
+                        <DataGrid ItemsSource="{Binding ChildPayments}" CellStyle="{StaticResource DataGridCellModern}"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  CanUserAddRows="False"
+                                  BorderThickness="0">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat={}{0:MMM dd, yyyy}}" Width="1.4*" />
+                                <DataGridTextColumn Header="Amount" Binding="{Binding Amount, StringFormat={}{0:C}}" Width="*" />
+                                <DataGridTextColumn Header="Month" Binding="{Binding Month}" Width="*" />
+                                <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="*" />
+                                <DataGridTemplateColumn Header="Status" Width="120">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border CornerRadius="{StaticResource CornerRadiusSM}"
+                                                    Padding="8,4"
+                                                    HorizontalAlignment="Left"
+                                                    Background="{Binding IsPaid, Converter={StaticResource BoolToBrushConverter}}">
+                                                <TextBlock Text="{Binding IsPaid, Converter={StaticResource BoolToStringConverter}, ConverterParameter='Paid|Pending'}"
+                                                           Foreground="White"
+                                                           FontSize="12"
+                                                           FontWeight="SemiBold" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="2*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Border>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</UserControl>

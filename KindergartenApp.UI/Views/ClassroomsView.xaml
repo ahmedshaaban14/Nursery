@@ -1,0 +1,177 @@
+<UserControl x:Class="KindergartenApp.UI.Views.ClassroomsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:core="clr-namespace:KindergartenApp.Core.Entities;assembly=KindergartenApp.Core">
+    <Grid Background="{StaticResource BrushBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="360" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Style="{StaticResource CardModern}"
+                Background="{StaticResource BrushSurface}"
+                Margin="0,0,20,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="{StaticResource PaddingMD}">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
+                        <materialDesign:PackIcon Kind="SchoolOutline"
+                                                 Width="24"
+                                                 Height="24"
+                                                 Foreground="{StaticResource BrushPrimary}"
+                                                 Margin="0,0,10,0" />
+                        <TextBlock Margin="0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockH3}">
+                                    <Setter Property="Text" Value="Add Classroom" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEditMode}" Value="True">
+                                            <Setter Property="Text" Value="Update Classroom" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <TextBlock Text="Classroom Name" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxModern}" Margin="0,0,0,14" />
+
+                    <TextBlock Text="Stage" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <ComboBox SelectedItem="{Binding Stage}" Style="{StaticResource ComboBoxModern}" Margin="0,0,0,14">
+                        <core:ClassroomStage>Nursery</core:ClassroomStage>
+                        <core:ClassroomStage>KG1</core:ClassroomStage>
+                        <core:ClassroomStage>KG2</core:ClassroomStage>
+                        <core:ClassroomStage>Preschool</core:ClassroomStage>
+                    </ComboBox>
+
+                    <TextBlock Text="Capacity" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding Capacity, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxModern}" Margin="0,0,0,14" />
+
+                    <TextBlock Text="Teacher" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <ComboBox SelectedValue="{Binding TeacherId}" 
+                              SelectedValuePath="Id" 
+                              DisplayMemberPath="FullName"
+                              ItemsSource="{Binding Teachers}"
+                              Style="{StaticResource ComboBoxModern}"
+                              Margin="0,0,0,14" />
+
+                    <TextBlock Text="Notes" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBoxModern}"
+                             Height="82"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             Margin="0,0,0,18" />
+
+                    <Button Command="{Binding AddClassroomCommand}"
+                            Height="42"
+                            Margin="0,0,0,10"
+                            Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="PlusCircleOutline" Width="18" Height="18" Margin="0,0,8,0" />
+                            <TextBlock Text="Add Classroom" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Command="{Binding UpdateClassroomCommand}"
+                            Height="42"
+                            Margin="0,0,0,10"
+                            Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ContentSaveEditOutline" Width="18" Height="18" Margin="0,0,8,0" />
+                            <TextBlock Text="Update Classroom" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Command="{Binding LoadClassroomsCommand}"
+                            Style="{StaticResource ButtonSecondary}"
+                            Height="42"
+                            Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Refresh" Width="18" Height="18" Margin="0,0,8,0" />
+                            <TextBlock Text="Refresh" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Command="{Binding CancelEditCommand}"
+                            Style="{StaticResource ButtonSecondary}"
+                            Height="42"
+                            Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CloseCircleOutline" Width="18" Height="18" Margin="0,0,8,0" />
+                            <TextBlock Text="Cancel" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Style="{StaticResource CardModern}" Background="{StaticResource BrushSurface}" Margin="0,0,0,16">
+                <Grid Margin="{StaticResource PaddingMD}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Magnify" Width="22" Height="22" Foreground="{StaticResource BrushTextSecondary}" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Column="1"
+                             Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBoxModern}"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             Foreground="{StaticResource BrushTextPrimary}"
+                             CaretBrush="{StaticResource BrushPrimary}"
+                             materialDesign:HintAssist.Hint="Search by name or stage" />
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Style="{StaticResource CardModern}" Background="{StaticResource BrushSurface}" Padding="0">
+                <DataGrid ItemsSource="{Binding FilteredClassrooms}" CellStyle="{StaticResource DataGridCellModern}"
+                          SelectedItem="{Binding SelectedClassroom}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          CanUserAddRows="False"
+                          BorderThickness="0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="1.5*" />
+                        <DataGridTextColumn Header="Stage" Binding="{Binding Stage}" Width="100" />
+                        <DataGridTextColumn Header="Capacity" Binding="{Binding Capacity}" Width="90" />
+                        <DataGridTextColumn Header="Students" Binding="{Binding CurrentStudentCount}" Width="80" />
+                        <DataGridTextColumn Header="Occupancy" Binding="{Binding OccupancyPercentage, StringFormat={}{0:F0}%}" Width="90" />
+                        <DataGridTextColumn Header="Teacher" Binding="{Binding TeacherName}" Width="1.2*" />
+                        <DataGridTemplateColumn Header="Actions" Width="130">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Command="{Binding DataContext.EditClassroomCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                Style="{StaticResource ButtonIcon}"
+                                                MinHeight="32"
+                                                MinWidth="32"
+                                                ToolTip="Edit">
+                                            <materialDesign:PackIcon Kind="PencilOutline" Width="17" Height="17" />
+                                        </Button>
+                                        <Button Command="{Binding DataContext.DeleteClassroomCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                Style="{StaticResource ButtonIcon}"
+                                                MinHeight="32"
+                                                MinWidth="32"
+                                                ToolTip="Delete">
+                                            <materialDesign:PackIcon Kind="TrashCanOutline" Width="17" Height="17" Foreground="{StaticResource BrushDanger}" />
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

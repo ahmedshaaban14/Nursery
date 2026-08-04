@@ -1,0 +1,169 @@
+<Window x:Class="KindergartenApp.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Kindergarten Management"
+        Height="820"
+        Width="1380"
+        MinHeight="680"
+        MinWidth="1120"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BrushBackground}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Background="{StaticResource BrushSurface}"
+                BorderBrush="{StaticResource BrushBorder}"
+                BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0"
+                        Padding="22"
+                        BorderBrush="{StaticResource BrushBorder}"
+                        BorderThickness="0,0,0,1">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                            <Border Width="42"
+                                    Height="42"
+                                    CornerRadius="{StaticResource CornerRadiusMD}"
+                                    Background="{StaticResource BrushPrimary}">
+                                <materialDesign:PackIcon Kind="SchoolOutline"
+                                                         Width="24"
+                                                         Height="24"
+                                                         HorizontalAlignment="Center"
+                                                         VerticalAlignment="Center"
+                                                         Foreground="White" />
+                            </Border>
+                            <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                                <TextBlock Text="Kindergarten"
+                                           FontSize="16"
+                                           FontWeight="SemiBold" />
+                                <TextBlock Text="Management System"
+                                           Style="{StaticResource TextBlockSmall}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Grid.Row="1" Margin="12,18">
+                    <Button x:Name="DashboardBtn" Click="DashboardBtn_Click" Style="{StaticResource NavButton}" Height="46" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewDashboardOutline" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Dashboard" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="ChildrenBtn" Click="ChildrenBtn_Click" Style="{StaticResource NavButton}" Height="46" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountChildOutline" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Children" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="ClassroomsBtn" Click="ClassroomsBtn_Click" Style="{StaticResource NavButton}" Height="46" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="SchoolOutline" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Classrooms" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="StaffBtn" Click="StaffBtn_Click" Style="{StaticResource NavButton}" Height="46" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountTieOutline" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Staff" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="ChildProfileBtn" Click="ChildProfileBtn_Click" Style="{StaticResource NavButton}" Height="46" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountChildOutline" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Child Profile" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="UsersBtn" Click="UsersBtn_Click" Style="{StaticResource NavButton}" Height="46" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountKeyOutline" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Users" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="AttendanceBtn" Click="AttendanceBtn_Click" Style="{StaticResource NavButton}" Height="46" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CalendarCheckOutline" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Attendance" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="PaymentsBtn" Click="PaymentsBtn_Click" Style="{StaticResource NavButton}" Height="46" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CreditCardOutline" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Payments" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="ReportsBtn" Click="ReportsBtn_Click" Style="{StaticResource NavButton}" Height="46" Margin="0,0,0,8">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="FileChartOutline" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Reports" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <Border Grid.Row="2"
+                        Padding="12,14"
+                        BorderBrush="{StaticResource BrushBorder}"
+                        BorderThickness="0,1,0,0">
+                    <Button x:Name="LogoutBtn"
+                            Click="LogoutBtn_Click"
+                            Style="{StaticResource NavButton}"
+                            Foreground="{StaticResource BrushDanger}"
+                            Height="44">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="LogoutVariant" Width="20" Height="20" Margin="0,0,12,0" />
+                            <TextBlock Text="Logout" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    Background="{StaticResource BrushSurface}"
+                    BorderBrush="{StaticResource BrushBorder}"
+                    BorderThickness="0,0,0,1"
+                    Padding="26,20">
+                <Grid>
+                    <StackPanel>
+                        <TextBlock x:Name="PageTitleBlock"
+                                   Text="Dashboard"
+                                   FontSize="24"
+                                   FontWeight="SemiBold" />
+                        <TextBlock Text="Keep children, attendance, payments, and reports in one focused workspace."
+                                   Style="{StaticResource TextBlockSmall}"
+                                   Margin="0,4,0,0" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Padding="22">
+                <ContentControl x:Name="ContentArea" />
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,89 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Typography -->
+    <system:Double x:Key="FontSizeXXS">10</system:Double>
+    <system:Double x:Key="FontSizeXS">11</system:Double>
+    <system:Double x:Key="FontSizeSM">12</system:Double>
+    <system:Double x:Key="FontSizeMD">13</system:Double>
+    <system:Double x:Key="FontSizeLG">14</system:Double>
+    <system:Double x:Key="FontSizeXL">16</system:Double>
+    <system:Double x:Key="FontSizeXXL">18</system:Double>
+    <system:Double x:Key="FontSize3XL">24</system:Double>
+    <system:Double x:Key="FontSize4XL">32</system:Double>
+
+    <!-- Font Families -->
+    <FontFamily x:Key="FontFamilyPrimary">Segoe UI, Helvetica, Arial</FontFamily>
+    <FontFamily x:Key="FontFamilyMono">Consolas, Monaco, 'Courier New'</FontFamily>
+
+    <!-- Font Weights -->
+    <FontWeight x:Key="FontWeightThin">Thin</FontWeight>
+    <FontWeight x:Key="FontWeightLight">Light</FontWeight>
+    <FontWeight x:Key="FontWeightNormal">Normal</FontWeight>
+    <FontWeight x:Key="FontWeightMedium">Medium</FontWeight>
+    <FontWeight x:Key="FontWeightSemiBold">SemiBold</FontWeight>
+    <FontWeight x:Key="FontWeightBold">Bold</FontWeight>
+
+    <!-- Text Styles -->
+    <Style x:Key="TextBlockH1" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FontFamilyPrimary}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSize4XL}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}"/>
+        <Setter Property="Margin" Value="0,0,0,12"/>
+    </Style>
+
+    <Style x:Key="TextBlockH2" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FontFamilyPrimary}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSize3XL}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightBold}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}"/>
+        <Setter Property="Margin" Value="0,0,0,10"/>
+    </Style>
+
+    <Style x:Key="TextBlockH3" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FontFamilyPrimary}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXXL}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightSemiBold}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}"/>
+        <Setter Property="Margin" Value="0,0,0,8"/>
+    </Style>
+
+    <Style x:Key="TextBlockLabel" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FontFamilyPrimary}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeMD}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextSecondary}"/>
+    </Style>
+
+    <Style x:Key="TextBlockBody" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FontFamilyPrimary}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLG}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="TextBlockSmall" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FontFamilyPrimary}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSM}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightNormal}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextTertiary}"/>
+    </Style>
+
+    <Style x:Key="TextBlockH4" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FontFamilyPrimary}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXL}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightSemiBold}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextPrimary}"/>
+    </Style>
+
+    <Style x:Key="TextBlockLabelSmall" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FontFamilyPrimary}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeXS}"/>
+        <Setter Property="FontWeight" Value="{StaticResource FontWeightMedium}"/>
+        <Setter Property="Foreground" Value="{StaticResource BrushTextSecondary}"/>
+    </Style>
+
+</ResourceDictionary>

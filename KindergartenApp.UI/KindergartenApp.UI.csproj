@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <StartupObject>KindergartenApp.UI.App</StartupObject>
+    <!-- For WPF, don't set ApplicationDefinition manually. -->
+  </PropertyGroup>
+
+
+
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
+    <PackageReference Include="ClosedXML" Version="0.102.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KindergartenApp.Core\KindergartenApp.Core.csproj" />
+    <ProjectReference Include="..\KindergartenApp.Infrastructure\KindergartenApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\KindergartenApp.Application\KindergartenApp.Application.csproj" />
+  </ItemGroup>
+
+</Project>

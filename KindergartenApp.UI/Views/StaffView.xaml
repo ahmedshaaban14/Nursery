@@ -1,0 +1,187 @@
+<UserControl x:Class="KindergartenApp.UI.Views.StaffView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:core="clr-namespace:KindergartenApp.Core.Entities;assembly=KindergartenApp.Core">
+    <Grid Background="{StaticResource BrushBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="360" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Style="{StaticResource CardModern}"
+                Background="{StaticResource BrushSurface}"
+                Margin="0,0,20,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="{StaticResource PaddingMD}">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
+                        <materialDesign:PackIcon Kind="AccountTieOutline"
+                                                 Width="24"
+                                                 Height="24"
+                                                 Foreground="{StaticResource BrushPrimary}"
+                                                 Margin="0,0,10,0" />
+                        <TextBlock Margin="0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource TextBlockH3}">
+                                    <Setter Property="Text" Value="Add Staff" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsEditMode}" Value="True">
+                                            <Setter Property="Text" Value="Update Staff" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <TextBlock Text="Full Name" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding FullName, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxModern}" Margin="0,0,0,14" />
+
+                    <TextBlock Text="Role" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <ComboBox SelectedItem="{Binding Role}" Style="{StaticResource ComboBoxModern}" Margin="0,0,0,14">
+                        <core:StaffRole>Teacher</core:StaffRole>
+                        <core:StaffRole>Supervisor</core:StaffRole>
+                        <core:StaffRole>Accountant</core:StaffRole>
+                        <core:StaffRole>Driver</core:StaffRole>
+                        <core:StaffRole>Cleaner</core:StaffRole>
+                        <core:StaffRole>Nurse</core:StaffRole>
+                    </ComboBox>
+
+                    <TextBlock Text="Salary" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding Salary, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxModern}" Margin="0,0,0,14" />
+
+                    <TextBlock Text="Phone" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxModern}" Margin="0,0,0,14" />
+
+                    <TextBlock Text="Address" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxModern}" Margin="0,0,0,14" />
+
+                    <TextBlock Text="Hire Date" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <DatePicker SelectedDate="{Binding HireDate}" Style="{StaticResource DatePickerModern}" Margin="0,0,0,14" />
+
+                    <TextBlock Text="Status" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <ComboBox SelectedItem="{Binding Status}" Style="{StaticResource ComboBoxModern}" Margin="0,0,0,14">
+                        <core:StaffStatus>Active</core:StaffStatus>
+                        <core:StaffStatus>Inactive</core:StaffStatus>
+                        <core:StaffStatus>OnLeave</core:StaffStatus>
+                    </ComboBox>
+
+                    <TextBlock Text="Notes" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                    <TextBox Text="{Binding Notes, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBoxModern}"
+                             Height="82"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             Margin="0,0,0,18" />
+
+                    <Button Command="{Binding AddStaffCommand}"
+                            Height="42"
+                            Margin="0,0,0,10"
+                            Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Invert}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="PlusCircleOutline" Width="18" Height="18" Margin="0,0,8,0" />
+                            <TextBlock Text="Add Staff" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Command="{Binding UpdateStaffCommand}"
+                            Height="42"
+                            Margin="0,0,0,10"
+                            Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ContentSaveEditOutline" Width="18" Height="18" Margin="0,0,8,0" />
+                            <TextBlock Text="Update Staff" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Command="{Binding LoadStaffCommand}"
+                            Style="{StaticResource ButtonSecondary}"
+                            Height="42"
+                            Margin="0,0,0,10">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Refresh" Width="18" Height="18" Margin="0,0,8,0" />
+                            <TextBlock Text="Refresh" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Command="{Binding CancelEditCommand}"
+                            Style="{StaticResource ButtonSecondary}"
+                            Height="42"
+                            Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CloseCircleOutline" Width="18" Height="18" Margin="0,0,8,0" />
+                            <TextBlock Text="Cancel" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Style="{StaticResource CardModern}" Background="{StaticResource BrushSurface}" Margin="0,0,0,16">
+                <Grid Margin="{StaticResource PaddingMD}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Magnify" Width="22" Height="22" Foreground="{StaticResource BrushTextSecondary}" VerticalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBox Grid.Column="1"
+                             Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource TextBoxModern}"
+                             BorderThickness="0"
+                             Background="Transparent"
+                             Foreground="{StaticResource BrushTextPrimary}"
+                             CaretBrush="{StaticResource BrushPrimary}"
+                             materialDesign:HintAssist.Hint="Search by name, phone, or role" />
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Style="{StaticResource CardModern}" Background="{StaticResource BrushSurface}" Padding="0">
+                <DataGrid ItemsSource="{Binding FilteredStaff}" CellStyle="{StaticResource DataGridCellModern}"
+                          SelectedItem="{Binding SelectedStaff}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          CanUserAddRows="False"
+                          BorderThickness="0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding FullName}" Width="1.5*" />
+                        <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="120" />
+                        <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="130" />
+                        <DataGridTextColumn Header="Salary" Binding="{Binding Salary, StringFormat={}{0:C}}" Width="100" />
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100" />
+                        <DataGridTextColumn Header="Hire Date" Binding="{Binding HireDate, StringFormat=yyyy-MM-dd}" Width="110" />
+                        <DataGridTemplateColumn Header="Actions" Width="130">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Command="{Binding DataContext.EditStaffCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                Style="{StaticResource ButtonIcon}"
+                                                MinHeight="32"
+                                                MinWidth="32"
+                                                ToolTip="Edit">
+                                            <materialDesign:PackIcon Kind="PencilOutline" Width="17" Height="17" />
+                                        </Button>
+                                        <Button Command="{Binding DataContext.DeleteStaffCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                Style="{StaticResource ButtonIcon}"
+                                                MinHeight="32"
+                                                MinWidth="32"
+                                                ToolTip="Delete">
+                                            <materialDesign:PackIcon Kind="TrashCanOutline" Width="17" Height="17" Foreground="{StaticResource BrushDanger}" />
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

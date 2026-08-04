@@ -1,0 +1,103 @@
+<Window x:Class="KindergartenApp.UI.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Kindergarten Management - Login"
+        Height="560"
+        Width="920"
+        MinHeight="520"
+        MinWidth="860"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BrushBackground}"
+        TextElement.Foreground="{StaticResource BrushTextPrimary}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.05*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Background="{StaticResource BrushSurface}"
+                BorderBrush="{StaticResource BrushBorder}"
+                BorderThickness="0,0,1,0"
+                Padding="42">
+            <StackPanel VerticalAlignment="Center">
+                <Border Width="72"
+                        Height="72"
+                        CornerRadius="{StaticResource CornerRadiusLG}"
+                        Background="{StaticResource BrushPrimary}"
+                        HorizontalAlignment="Left"
+                        Margin="0,0,0,28">
+                    <materialDesign:PackIcon Kind="SchoolOutline"
+                                             Width="42"
+                                             Height="42"
+                                             Foreground="White"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center" />
+                </Border>
+
+                <TextBlock Text="Kindergarten"
+                           FontSize="34"
+                           FontWeight="Bold"
+                           Margin="0,0,0,6" />
+                <TextBlock Text="Management System"
+                           FontSize="18"
+                           Foreground="{StaticResource BrushTextSecondary}"
+                           Margin="0,0,0,24" />
+                <TextBlock Text="A focused desktop workspace for children, attendance, payments, and reports."
+                           Style="{StaticResource TextBlockBody}"
+                           Foreground="{StaticResource BrushTextSecondary}"
+                           Width="340"
+                           HorizontalAlignment="Left" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Padding="52,42">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Sign in" Style="{StaticResource TextBlockH2}" Margin="0,0,0,6" />
+                <TextBlock Text="Use your admin account to continue."
+                           Style="{StaticResource TextBlockSmall}"
+                           Margin="0,0,0,28" />
+
+                <TextBlock Text="Username" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                <TextBox x:Name="UsernameTextBox"
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource TextBoxModern}"
+                         Height="44"
+                         Margin="0,0,0,18" />
+
+                <TextBlock Text="Password" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                <PasswordBox x:Name="PasswordBox"
+                             Style="{StaticResource PasswordBoxModern}"
+                             Height="44"
+                             Margin="0,0,0,24" />
+
+                <Button x:Name="LoginButton"
+                        Height="46"
+                        Click="LoginButton_Click"
+                        Margin="0,0,0,20">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="LoginVariant"
+                                                 Width="18"
+                                                 Height="18"
+                                                 Margin="0,0,8,0" />
+                        <TextBlock Text="Sign In" />
+                    </StackPanel>
+                </Button>
+
+                <Border Background="{StaticResource BrushSurfaceLight}"
+                        CornerRadius="{StaticResource CornerRadiusMD}"
+                        Padding="14">
+                    <StackPanel>
+                        <TextBlock Text="Demo Credentials"
+                                   Style="{StaticResource TextBlockLabel}"
+                                   Foreground="{StaticResource BrushTextPrimary}"
+                                   Margin="0,0,0,8" />
+                        <TextBlock Text="Username: admin" Style="{StaticResource TextBlockSmall}" Margin="0,0,0,4" />
+                        <TextBlock Text="Password: admin123" Style="{StaticResource TextBlockSmall}" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,158 @@
+<UserControl x:Class="KindergartenApp.UI.Views.AttendanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Grid Background="{StaticResource BrushBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Style="{StaticResource CardModern}"
+                Background="{StaticResource BrushSurface}"
+                Margin="0,0,20,0"
+                VerticalAlignment="Stretch">
+            <StackPanel Margin="{StaticResource PaddingMD}">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,18">
+                    <materialDesign:PackIcon Kind="CalendarCheckOutline"
+                                             Width="24"
+                                             Height="24"
+                                             Foreground="{StaticResource BrushPrimary}"
+                                             Margin="0,0,10,0" />
+                    <TextBlock Text="Attendance"
+                               Style="{StaticResource TextBlockH3}"
+                               Margin="0" />
+                </StackPanel>
+
+                <TextBlock Text="Child" Style="{StaticResource TextBlockLabel}" Margin="0,0,0,6" />
+                <ComboBox ItemsSource="{Binding Children}"
+                          SelectedValue="{Binding SelectedChildId}"
+                          SelectedValuePath="Id"
+                          DisplayMemberPath="FullName"
+                          Style="{StaticResource ComboBoxModern}"
+                          Margin="0,0,0,18" />
+
+                <Button Command="{Binding LoadTodayAttendanceCommand}"
+                        Height="42"
+                        Margin="0,0,0,10">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Refresh"
+                                                 Width="18"
+                                                 Height="18"
+                                                 Margin="0,0,8,0" />
+                        <TextBlock Text="Refresh Today" />
+                    </StackPanel>
+                </Button>
+
+                <Button Command="{Binding LoadChildrenCommand}"
+                        Style="{StaticResource ButtonSecondary}"
+                        Height="42">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountMultipleOutline"
+                                                 Width="18"
+                                                 Height="18"
+                                                 Margin="0,0,8,0" />
+                        <TextBlock Text="Refresh Children" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Border>
+
+        <TabControl Grid.Column="1" Style="{StaticResource TabControlModern}"
+                    Background="{StaticResource BrushBackground}"
+                    Foreground="{StaticResource BrushTextPrimary}">
+            <TabItem Header="Today" Style="{StaticResource TabItemModern}">
+                <Border Style="{StaticResource CardModern}"
+                        Background="{StaticResource BrushSurface}"
+                        Padding="0">
+                    <DataGrid ItemsSource="{Binding TodayAttendance}" CellStyle="{StaticResource DataGridCellModern}"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              CanUserAddRows="False"
+                              BorderThickness="0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Child" Binding="{Binding ChildName}" Width="2*" />
+                            <DataGridTemplateColumn Header="Status" Width="140">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="{StaticResource CornerRadiusSM}"
+                                                Padding="8,4"
+                                                HorizontalAlignment="Left"
+                                                Background="{Binding IsPresent, Converter={StaticResource BoolToBrushConverter}}">
+                                            <TextBlock Text="{Binding IsPresent, Converter={StaticResource BoolToStringConverter}, ConverterParameter='Present|Absent'}"
+                                                       Foreground="White"
+                                                       FontSize="12"
+                                                       FontWeight="SemiBold" />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Actions" Width="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Command="{Binding DataContext.MarkPresentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                    CommandParameter="{Binding}"
+                                                    Style="{StaticResource ButtonSecondary}"
+                                                    Height="32"
+                                                    Padding="10,4"
+                                                    Margin="0,0,8,0">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <materialDesign:PackIcon Kind="CheckCircleOutline" Width="16" Height="16" Margin="0,0,6,0" />
+                                                    <TextBlock Text="Present" />
+                                                </StackPanel>
+                                            </Button>
+                                            <Button Command="{Binding DataContext.MarkAbsentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                                    CommandParameter="{Binding}"
+                                                    Style="{StaticResource ButtonSecondary}"
+                                                    Height="32"
+                                                    Padding="10,4">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <materialDesign:PackIcon Kind="CloseCircleOutline" Width="16" Height="16" Margin="0,0,6,0" />
+                                                    <TextBlock Text="Absent" />
+                                                </StackPanel>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="Child History" Style="{StaticResource TabItemModern}">
+                <Border Style="{StaticResource CardModern}"
+                        Background="{StaticResource BrushSurface}"
+                        Padding="0">
+                    <DataGrid ItemsSource="{Binding ChildAttendanceHistory}" CellStyle="{StaticResource DataGridCellModern}"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              CanUserAddRows="False"
+                              BorderThickness="0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat={}{0:MMM dd, yyyy}}" Width="180" />
+                            <DataGridTemplateColumn Header="Status" Width="140">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border CornerRadius="{StaticResource CornerRadiusSM}"
+                                                Padding="8,4"
+                                                HorizontalAlignment="Left"
+                                                Background="{Binding IsPresent, Converter={StaticResource BoolToBrushConverter}}">
+                                            <TextBlock Text="{Binding IsPresent, Converter={StaticResource BoolToStringConverter}, ConverterParameter='Present|Absent'}"
+                                                       Foreground="White"
+                                                       FontSize="12"
+                                                       FontWeight="SemiBold" />
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

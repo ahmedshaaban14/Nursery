@@ -1,0 +1,11 @@
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\bin\Debug\net8.0\KindergartenApp.Core.deps.json
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\bin\Debug\net8.0\KindergartenApp.Core.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\bin\Debug\net8.0\KindergartenApp.Core.pdb
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\obj\Debug\net8.0\KindergartenApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\obj\Debug\net8.0\KindergartenApp.Core.AssemblyInfoInputs.cache
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\obj\Debug\net8.0\KindergartenApp.Core.AssemblyInfo.cs
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\obj\Debug\net8.0\KindergartenApp.Core.csproj.CoreCompileInputs.cache
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\obj\Debug\net8.0\KindergartenApp.Core.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\obj\Debug\net8.0\refint\KindergartenApp.Core.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\obj\Debug\net8.0\KindergartenApp.Core.pdb
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Core\obj\Debug\net8.0\ref\KindergartenApp.Core.dll

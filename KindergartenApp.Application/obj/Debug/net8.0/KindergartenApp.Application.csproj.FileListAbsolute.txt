@@ -1,0 +1,17 @@
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\bin\Debug\net8.0\KindergartenApp.Application.deps.json
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\bin\Debug\net8.0\KindergartenApp.Application.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\bin\Debug\net8.0\KindergartenApp.Application.pdb
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\bin\Debug\net8.0\KindergartenApp.Core.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\bin\Debug\net8.0\KindergartenApp.Infrastructure.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\bin\Debug\net8.0\KindergartenApp.Core.pdb
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\bin\Debug\net8.0\KindergartenApp.Infrastructure.pdb
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\KindergartenApp.Application.csproj.AssemblyReference.cache
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\KindergartenApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\KindergartenApp.Application.AssemblyInfoInputs.cache
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\KindergartenApp.Application.AssemblyInfo.cs
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\KindergartenApp.Application.csproj.CoreCompileInputs.cache
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\KindergartenApp.Application.csproj.CopyComplete
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\KindergartenApp.Application.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\refint\KindergartenApp.Application.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\KindergartenApp.Application.pdb
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Application\obj\Debug\net8.0\ref\KindergartenApp.Application.dll

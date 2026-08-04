@@ -1,0 +1,17 @@
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\bin\Debug\net8.0\KindergartenApp.Infrastructure.deps.json
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\bin\Debug\net8.0\KindergartenApp.Infrastructure.runtimeconfig.json
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\bin\Debug\net8.0\KindergartenApp.Infrastructure.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\bin\Debug\net8.0\KindergartenApp.Infrastructure.pdb
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\bin\Debug\net8.0\KindergartenApp.Core.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\bin\Debug\net8.0\KindergartenApp.Core.pdb
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\KindergartenApp.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\KindergartenApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\KindergartenApp.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\KindergartenApp.Infrastructure.AssemblyInfo.cs
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\KindergartenApp.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\KindergartenApp.Infrastructure.csproj.CopyComplete
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\KindergartenApp.Infrastructure.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\refint\KindergartenApp.Infrastructure.dll
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\KindergartenApp.Infrastructure.pdb
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\KindergartenApp.Infrastructure.genruntimeconfig.cache
+C:\Users\HH\Desktop\Nursery\KindergartenApp.Infrastructure\obj\Debug\net8.0\ref\KindergartenApp.Infrastructure.dll
